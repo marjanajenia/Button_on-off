@@ -1,5 +1,7 @@
 @extends('backend.layouts.layout')
 
+@section('admin_title', 'Dashboard')
+
 @section('admin.content')
 <!-- Content Header (Page header) -->
 <div class="content-header">
