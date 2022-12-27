@@ -8,6 +8,8 @@
 <script src="{{ asset('backend') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="{{ asset('backend') }}/plugins/chart.js/Chart.min.js"></script>
+
+@stack('custom_script')
 <!-- JQVMap -->
 <script src="{{ asset('backend') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
