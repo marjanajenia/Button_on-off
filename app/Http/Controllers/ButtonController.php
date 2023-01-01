@@ -30,4 +30,24 @@ class ButtonController extends Controller
         $button->save();
         return redirect()->route('button.create');
     }
+    public function active($slug)
+    {
+        $product = Button::where('button_slug', $slug)->update(['status' => 1]);
+        return redirect()->back();
+    }
+    public function deactive($slug)
+    {
+        $product = Button::where('button_slug', $slug)->update(['status' => 2]);
+        // if ($button) {
+        //     $notification = array(
+        //         'message' => 'Button Status Updated!',
+        //         'alert-type' => 'success',
+        //     );
+        // } else {
+        //     $notification = array(
+        //         'message' => 'Button Update Failed!',
+        //         'alert-type' => 'error',
+        //     );
+        return redirect()->back();
+    }
 }

@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
 Route::controller(ButtonController::class)->prefix('button')->group(function(){
     Route::get('/', 'index')->name('button.create');
     Route::post('/add', 'store')->name('button.store');
+    // Button Status Update
+    Route::get('/active/{slug}', 'active')->name('admin.button.active');
+    Route::get('/deactive/{slug}', 'deactive')->name('admin.button.deactive');
 });
 
 require __DIR__.'/auth.php';

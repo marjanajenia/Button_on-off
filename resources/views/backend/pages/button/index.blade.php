@@ -57,17 +57,22 @@
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" aria-label="CSS grade: activate to sort column ascending"
                                                     style="width: 132.275px;">status</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1" aria-label="CSS grade: activate to sort column ascending"
-                                                    style="width: 140px;">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach($button as $buttons)
                                                 <tr>
-                                                    <th>{{ $buttons->name }}</th>
-                                                    <th> <img height="80" weight="100" src="{{ asset('backend/button/' .$buttons->image) }}" alt=""> </th>
-                                                    <th></th>
+                                                    <td>{{ $buttons->name }}</td>
+                                                    <td> <img height="80" weight="100" src="{{ asset('backend/button/' .$buttons->image) }}" alt=""> </td>
+                                                    <td>
+                                                        @if ($buttons->status == 2)
+                                                            <a href="{{ route('admin.button.active', $buttons->button_slug) }}"
+                                                                class='btn btn-success btn-sm'>Approve</a>
+                                                        @else
+                                                            <a href="{{ route('admin.button.deactive', $buttons->button_slug) }}"
+                                                                class='btn btn-warning btn-sm'>Pending</a>
+                                                        @endif
+                                                    </th>
                                                 </tr>
                                             @endforeach
                                         </tbody>
