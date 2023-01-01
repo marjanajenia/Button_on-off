@@ -63,6 +63,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($button as $buttons)
+                                                <tr>
+                                                    <th>{{ $buttons->name }}</th>
+                                                    <th> <img height="80" weight="100" src="{{ asset('backend/button/' .$buttons->image) }}" alt=""> </th>
+                                                    <th></th>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -85,15 +92,15 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <!-- from start-->
-                <form action="" method="POST" enctype="multipart/form-data">
-                    @csrf
+            <!-- from start-->
+            <form action="{{ Route('button.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" value={{ old('name') }}>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" value={{ old('name')}}>
                                 @error('name')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -103,7 +110,7 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="image" id="pro_document"
-                                         onchange="readURLserviceImg(this);" value={{ old('image') }}>
+                                          value={{ old('image')}}>
                                         <label class="custom-file-label" for="pro_document">Choose File</label>
                                     </div>
                                     <div class="input-group-append">
@@ -119,12 +126,13 @@
                             </div>
                         </div>
                     </div>
-                </form><!-- /.from end-->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form><!-- /.from end-->
+
         </div>
      </div>
 </div>

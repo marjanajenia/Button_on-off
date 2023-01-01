@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('image');
+            $table->string('button_slug');
             $table->string('status')->default(1)->comment('1 = pending, 2 = approved, 3 = rejected');
             $table->timestamps();
         });

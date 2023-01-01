@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::controller(ButtonController::class)->prefix('button')->group(function(){
     Route::get('/', 'index')->name('button.create');
+    Route::post('/add', 'store')->name('button.store');
 });
 
 require __DIR__.'/auth.php';
